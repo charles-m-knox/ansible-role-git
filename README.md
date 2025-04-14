@@ -11,8 +11,8 @@ There are no requirements for this, it should work out of the box with Ansible.
 Please see `defaults/main.yml` for variables that can all be set on a per-host
 basis.
 
-In particular, you'll want to set `git_config_extra_options` to something like
-this:
+In particular, you'll want to set `install_git: true` on your desired hosts, and
+then set `git_config_extra_options` to something like this:
 
 ```yaml
 git_config_extra_options:

@@ -1,6 +1,8 @@
 # SPDX-License-Identifier: MIT-0
 ---
 
+install_git: false
+
 # Here are some sensible defaults across all systems that you can set.
 git_config_common_options:
   - ["pull.rebase", "false"]
