@@ -28,7 +28,7 @@
     scope: global
     state: present
     value: "{{ item.1 }}"
-  with_together: "{{ git_config_common_options }}"
+  loop: "{{ git_config_common_options }}"
   when:
     - install_git
     - git_config_common_options is defined
@@ -42,7 +42,7 @@
     scope: global
     state: present
     value: "{{ item.1 }}"
-  with_together: "{{ git_config_extra_options }}"
+  loop: "{{ git_config_extra_options }}"
   when:
     - install_git
     - git_config_extra_options is defined
