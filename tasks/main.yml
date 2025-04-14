@@ -31,6 +31,8 @@
   with_together: "{{ git_config_common_options }}"
   when:
     - install_git
+    - git_config_common_options is defined
+    - git_config_common_options | length > 0
   tags:
     - git
 
@@ -43,5 +45,7 @@
   with_together: "{{ git_config_extra_options }}"
   when:
     - install_git
+    - git_config_extra_options is defined
+    - git_config_extra_options | length > 0
   tags:
     - git
