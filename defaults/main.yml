@@ -1,0 +1,16 @@
+# SPDX-License-Identifier: MIT-0
+---
+
+# Here are some sensible defaults across all systems that you can set.
+git_config_common_options:
+  - ["pull.rebase", "false"]
+  - ["credential.helper", "cache --timeout=604800"]
+  - ["tag.gpgSign", "true"]
+  - ["commit.gpgSign", "true"]
+
+# These can be overridden on a per-host basis. Structure matches the above
+# git_config_common_options structure.
+git_config_extra_options: []
+# - ["user.name", "example-git-username"]
+# - ["user.email", "code@example.com"]
+# - ["user.signingkey", "1234567890123456"]

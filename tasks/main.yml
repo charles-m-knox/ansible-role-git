@@ -1,0 +1,47 @@
+# SPDX-License-Identifier: MIT-0
+---
+- name: Install git
+  ansible.builtin.package:
+    name:
+      - git
+      - git-lfs
+    state: present
+  become: true
+  when:
+    - install_git
+  tags:
+    - git
+
+- name: Install git lfs  # noqa no-changed-when
+  ansible.builtin.command: git lfs install
+  register: git_lfs_install_result
+  # There's not really a simple way to assert that this one is changed or not.
+  # changed_when: git_lfs_install_result != "Git LFS initialized."
+  when:
+    - install_git
+  tags:
+    - git
+
+- name: Configure git global values (common)
+  community.general.git_config:
+    name: "{{ item.0 }}"
+    scope: global
+    state: present
+    value: "{{ item.1 }}"
+  with_together: "{{ git_config_common_options }}"
+  when:
+    - install_git
+  tags:
+    - git
+
+- name: Configure git global values (extras)
+  community.general.git_config:
+    name: "{{ item.0 }}"
+    scope: global
+    state: present
+    value: "{{ item.1 }}"
+  with_together: "{{ git_config_extra_options }}"
+  when:
+    - install_git
+  tags:
+    - git
