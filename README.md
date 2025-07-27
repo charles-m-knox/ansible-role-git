@@ -21,7 +21,8 @@ git_config_extra_options:
   - ["user.signingkey", "1234567890123456"]
 ```
 
-You'll also want to review `git_config_common_options` from `defaults/main.yml`, as these values get set as well.
+You'll also want to review `git_config_common_options` from `defaults/main.yml`,
+as these values get set as well.
 
 ## Dependencies
 
